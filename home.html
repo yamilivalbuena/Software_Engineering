@@ -1,0 +1,23 @@
+{% extends "app1/base.html"%}
+{% block content%}
+    
+
+<h1 style="text-align: center; color: white;">Explore available destinations</h1>
+<body style="background-color: #d84a4a;">
+    {% for destination in destinations %}
+    <article class="media content-section">
+            <div>
+                <h4>Municipality: <br></h4>
+                <a style="color: #926464; font-size: 20px; font-weight: 400;" class="article-title" href="{% url 'destination-detail' destination.id%}" >{{ destination.name }}</a>
+                <h4>Schedule:</h4>
+                <p style="color: #926464; font-size: 20px; font-weight: 400;"><small class="article">{{ destination.schedule}}</small></p>  
+            </div>
+    </article>
+    {% endfor %}  
+</body>
+
+
+
+{% endblock content %}
+
+
