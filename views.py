@@ -5,8 +5,9 @@ from django.views.generic import ListView, DetailView, CreateView, UpdateView, D
 from django.contrib.auth.mixins import LoginRequiredMixin, UserPassesTestMixin
 
 
+#Defining the functionality of each view
 
-# Create your views here. 
+#Home page takes all the destination classes
 def home(request):
     context = {
         'destinations': Destination.objects.all()
@@ -54,21 +55,28 @@ class DestinationDeleteView(LoginRequiredMixin, UserPassesTestMixin, DeleteView)
         return False
 
 
+#About page does not take any extra information except a title change
 
 def about(request):
     return render(request, 'app1/about.html', {'title': 'About'})
 
-def test1(request):
+#BookTrip page takes destinations' information
+
+def BookTrip(request):
     context = {
         'destinations': Destination.objects.all()
     }
     return render(request, "app1/test1.html", context)
 
-def test2(request):
+#DetailTrip page takes the information already selected in BookTrip
+
+def DetailTrip(request):
     names= request.GET['name']
     dates= request.GET['date']
     times= request.GET['time']
     return render(request, "app1/test2.html",{'name':names, 'date':dates, 'time':times})
+
+#Confirmation page does not take any extra parameter
 
 def confirmation(request):
     return render(request, "app1/confirmation.html")
