@@ -14,6 +14,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" type="text/css" href="{% static 'app1/main.css'%}">
+ 
+    <!-- Company's logo -->
     <link  href="{% static 'app1/icon.png'%}">
 
 
@@ -24,6 +26,9 @@
     {% endif%}
 </head>
 <body>
+ 
+ <!-- Static bar -->
+ 
     <header class="site-header">
         <nav class="navbar navbar-expand-md navbar-dark bg-steel fixed-top">
           <div class="container">
@@ -36,6 +41,9 @@
             <div class="collapse navbar-collapse" id="navbarToggle">
               <div class="navbar-nav mr-auto">
                 <a class="nav-item nav-link" href="{% url 'app1-home' %}">Destinations</a>
+               
+               <!-- Only authenticated users can book trips  -->
+               
                 {% if user.is_authenticated %}
                   <a class="nav-item nav-link" href="{% url 'users-test1' %}">Book a trip</a>
                 {% endif %}
@@ -56,7 +64,8 @@
     </header>
 
 
-
+    <!-- Main container, where all the individual templates are added -->
+ 
     <main role="main" class="container">
         <div class="row"> 
           <div class="col-md-2 center-block"></div>
@@ -71,21 +80,6 @@
             {% block content %}{% endblock %}
           </div>
           <div class="col-md-2"></div>
-          <!-- <div class="col-md-4"> 
-            
-            <div class="content-section">
-              <h3>Information payment</h3>
-              <p class='text-muted'>Check verification status
-                <ul class="list-group">
-                  <li class="list-group-item list-group-item-light">Latest Posts</li>
-                  <li class="list-group-item list-group-item-light">Announcements</li>
-                  <li class="list-group-item list-group-item-light">Calendars</li>
-                  <li class="list-group-item list-group-item-light">etc</li>
-                </ul>
-                
-              </p>
-            </div>
-            -->
           </div>
         </div>
       </main>
