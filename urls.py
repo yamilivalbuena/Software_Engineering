@@ -2,6 +2,8 @@ from django.urls import path
 from . import views
 from .views import DestinationListView, DestinationDetailView, DestinationCreateView, DestinationUpdateView, DestinationDeleteView
 
+#List of automatically created url's for the destination display and individual views
+
 urlpatterns = [
     path('destination/', DestinationListView.as_view(), name='app1-home'),
     path('', views.about, name = 'app1-about'),
